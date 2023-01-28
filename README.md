@@ -15,6 +15,8 @@ docker run --rm -it -v "$(readlink -f .)":/opt openssl-gost-engine-builder
 # openssl-gost-engine_2022-05-20-739f957-1_amd64.deb
 ```
 
-Docs:
+Don't forget to configure OpenSSL to use GOST engine: [how-to](https://github.com/gost-engine/engine/blob/master/INSTALL.md#how-to-configure).
 
-https://github.com/gost-engine/engine/blob/master/INSTALL.md
+## Docs
+
+* https://www.altlinux.org/OSS-GOST-Crypto (in Russian)
