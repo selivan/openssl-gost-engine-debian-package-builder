@@ -4,9 +4,6 @@ set -x
 
 cd /root
 
-# DEBUG
-
-
 git clone -b "$GOST_ENGINE_GIT_BRANCH" "$GOST_ENGINE_GIT_REPO" engine
 cd engine
 git submodule update --init
