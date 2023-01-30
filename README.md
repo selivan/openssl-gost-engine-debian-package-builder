@@ -4,7 +4,7 @@ Docker image to easily build Ubuntu/Debian package for [OpenSSL GOST engine](htt
 
 ## Arguments
 
-* `BASE_IMAGE`    distributive version to build the package for, like `ubuntu:focal`
+* `BASE_IMAGE`    distributive version to build the package for, like: `ubuntu:focal`, `ubuntu:20.04`, `ubuntu:22.04`
 * `GOST_ENGINE_GIT_BRANCH`    choose git branch accorging to openssl version in the distributive, for example: `openssl_1_1_1` for OpenSSL v1.1.1. See the link above
 * `GOST_ENGINE_GIT_REPO`  choose another OpenSSL GOST engine git repo location
 
