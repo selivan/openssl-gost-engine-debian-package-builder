@@ -31,15 +31,11 @@ Don't forget to configure OpenSSL to use GOST engine: [how-to](https://github.co
 ```bash
 cat > /etc/ssl/openssl-gost.cnf <<EOF
 HOME                    = .
-
 openssl_conf = openssl_def
-
 [openssl_def]
 engines = engine_section
-
 [engine_section]
 gost = gost_section
-
 [gost_section]
 engine_id = gost
 dynamic_path = /usr/lib/x86_64-linux-gnu/engines-3/gost.so
