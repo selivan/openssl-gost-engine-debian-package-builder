@@ -15,7 +15,7 @@ Docker image to easily build Ubuntu/Debian package for [OpenSSL GOST engine](htt
 ```shell
 docker build --tag=openssl-gost-engine-builder \
 --build-arg BASE_IMAGE="ubuntu:24.04" \
---build-arg GOST_ENGINE_GIT_BRANCH="master"\
+--build-arg GOST_ENGINE_GIT_BRANCH="master" \
 .
 
 docker run --rm -it -v "$(readlink -f .)":/opt openssl-gost-engine-builder
