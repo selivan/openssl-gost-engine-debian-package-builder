@@ -13,7 +13,10 @@ Docker image to easily build Ubuntu/Debian package for [OpenSSL GOST engine](htt
 ## Usage
 
 ```shell
-docker build --tag=openssl-gost-engine-builder --build-arg BASE_IMAGE="ubuntu:24.04" --build-arg GOST_ENGINE_GIT_BRANCH="master" .
+docker build --tag=openssl-gost-engine-builder \
+--build-arg BASE_IMAGE="ubuntu:24.04" \
+--build-arg GOST_ENGINE_GIT_BRANCH="master"\
+.
 
 docker run --rm -it -v "$(readlink -f .)":/opt openssl-gost-engine-builder
 
@@ -23,10 +26,10 @@ docker run --rm -it -v "$(readlink -f .)":/opt openssl-gost-engine-builder
 
 Don't forget to configure OpenSSL to use GOST engine: [how-to](https://github.com/gost-engine/engine/blob/master/INSTALL.md#how-to-configure).
 
-Example:
+## Example OpenSSL configuration for GOST engine
 
 ```bash
-cat > /etc/ssl/openssl-gost-test.cnf <<EOF
+cat > /etc/ssl/openssl-gost.cnf <<EOF
 HOME                    = .
 
 openssl_conf = openssl_def
@@ -44,7 +47,13 @@ default_algorithms = ALL
 CRYPT_PARAMS = id-Gost28147-89-CryptoPro-A-ParamSet
 EOF
 
-OPENSSL_CONF=/etc/ssl/openssl-gost-test.cnf openssl ciphers | grep -i gost
+OPENSSL_CONF=/etc/ssl/openssl-gost.cnf openssl ciphers | tr ':' '\n' | grep -i gost
+# Result:
+# GOST2012-MAGMA-MAGMAOMAC
+# GOST2012-KUZNYECHIK-KUZNYECHIKOMAC
+# LEGACY-GOST2012-GOST8912-GOST8912
+# IANA-GOST2012-GOST8912-GOST8912
+# GOST2001-GOST89-GOST89
 ```
 
 ## Docs
